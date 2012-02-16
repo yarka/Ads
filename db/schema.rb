@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216180434) do
+ActiveRecord::Schema.define(:version => 20120216215836) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "image_url"
-    t.decimal  "price",       :precision => 6, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.decimal  "price",           :precision => 6, :scale => 2
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.string   "cover_image_uid"
   end
 
 end

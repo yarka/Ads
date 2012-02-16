@@ -10,7 +10,9 @@
 </p>
 <p>
   <strong>Image Url:</strong>
-  <%= @ad.image_url %>
+  <% unless @ad.cover_image.blank? %>
+    <td><%= image_tag @ad.cover_image.url %></td>
+  <% end  %>
 </p>
 <p>
   <strong>Price:</strong>

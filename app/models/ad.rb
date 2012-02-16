@@ -1,5 +1,6 @@
 class Ad < ActiveRecord::Base
-  attr_accessible :title, :description, :image_url, :price
+  attr_accessible :title, :description, :image_url, :price, :cover_image, :retained_cover_image
+  image_accessor :cover_image 
 
   validates :title, :description, :presence => true
   validates :title, :length => { :minimum => 10 }

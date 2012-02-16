@@ -26,6 +26,8 @@ gem 'therubyracer'
 gem "nifty-generators", :group => :development
 gem 'formtastic'
 gem 'will_paginate'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.10'
 
 
 # To use ActiveModel has_secure_password

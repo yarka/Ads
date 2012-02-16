@@ -4,7 +4,7 @@ Ad.destroy_all
   Ad.create!(
     :title => "SuperTitle #{i}",
     :description => "SuperDescription #{i}",
-    :image_url => "#{Rails.root}/app/assets/images/rails.png",
+    :cover_image => File.new("#{Rails.root}/app/assets/images/rails.png"),
     :price => 100 + i
   )
 end

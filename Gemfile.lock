@@ -37,6 +37,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    dragonfly (0.9.10)
+      rack
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -114,11 +116,13 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  dragonfly (~> 0.9.10)
   execjs
   formtastic
   jquery-rails
   mocha
   nifty-generators
+  rack-cache
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   sqlite3

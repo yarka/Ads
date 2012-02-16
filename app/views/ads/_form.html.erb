@@ -1,8 +1,9 @@
-<%= semantic_form_for @ad do |f| %>
+<%= semantic_form_for @ad, :html => {:multipart => true} do |f| %>
   <%= f.inputs do %>
     <%= f.input :title, :hint => "Title should be at least 10 characters long" %>
     <%= f.input :description %>
-    <%= f.input :image_url, :as => :file %>
+    <%= f.input :cover_image, :as => :file %>
+    <%= f.input :retained_cover_image, :as => :hidden %>
     <%= f.input :price %>
   <% end %>
   <%= f.buttons do %>

@@ -11,7 +11,10 @@
     <tr>
       <td><%= ad.title %></td>
       <td><%= ad.description %></td>
-      <td><%= ad.image_url %></td>
+      <%#*TODO: make it DRYer%>
+      <% unless ad.cover_image.blank? %>
+        <td><%= image_tag ad.cover_image.url %></td>
+      <% end  %>
       <td><%= ad.price %></td>
       <td><%= link_to "Show", ad %></td>
       <td><%= link_to "Edit", edit_ad_path(ad) %></td>
