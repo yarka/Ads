@@ -1,0 +1,12 @@
+<%= semantic_form_for @ad do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :title, :hint => "Title should be at least 10 characters long" %>
+    <%= f.input :description %>
+    <%= f.input :image_url, :as => :file %>
+    <%= f.input :price %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end  %>
+<% end %>
+
