@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ryanb/nested_form.git
+  revision: c5fc50abbed106ab8d5e8434f780ff6270c8ff01
+  specs:
+    nested_form (0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -121,6 +127,7 @@ DEPENDENCIES
   formtastic
   jquery-rails
   mocha
+  nested_form!
   nifty-generators
   rack-cache
   rails (= 3.2.1)

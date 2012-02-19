@@ -28,6 +28,7 @@ gem 'formtastic'
 gem 'will_paginate'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.10'
+gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 
 
 # To use ActiveModel has_secure_password

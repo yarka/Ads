@@ -1,6 +1,6 @@
 class RemoveImageUrlFromAds < ActiveRecord::Migration
   def up
-     remove_column :ads, :image_url, :string
+     remove_column :ads, :image_url
   end
 
   def down

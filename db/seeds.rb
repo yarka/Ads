@@ -4,7 +4,11 @@ Ad.destroy_all
   Ad.create!(
     :title => "SuperTitle #{i}",
     :description => "SuperDescription #{i}",
-    :cover_image => File.new("#{Rails.root}/app/assets/images/rails.png"),
     :price => 100 + i
   )
+end
+
+### IMAGES ###
+Ad.all.each do |ad|
+  Image.create!(:file => File.new("#{Rails.root}/app/assets/images/rails.png"), :ad => ad)
 end

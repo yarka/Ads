@@ -10,9 +10,10 @@
 </p>
 <p>
   <strong>Image Url:</strong>
-  <% unless @ad.cover_image.blank? %>
-    <td><%= image_tag @ad.cover_image.url %></td>
-  <% end  %>
+  <% @ad.images.each do |image| %>
+    <%= image_tag(image.file.url) %>
+  <% end %>
+
 </p>
 <p>
   <strong>Price:</strong>

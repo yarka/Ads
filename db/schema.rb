@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216215836) do
+ActiveRecord::Schema.define(:version => 20120219080612) do
 
   create_table "ads", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(:version => 20120216215836) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.string   "cover_image_uid"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "file_uid"
+    t.integer  "ad_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

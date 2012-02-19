@@ -4,6 +4,6 @@ class AddCoverImageUrl < ActiveRecord::Migration
   end
 
   def down
-    remove_column :ads, :cover_image_uid,  :string
+    remove_column :ads, :cover_image_uid
   end
 end
