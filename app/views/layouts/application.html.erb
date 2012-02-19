@@ -11,6 +11,8 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <%= link_to "Home", ads_path%>
+    <%= link_to "Ad types", adtype_path %>
     <div id="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>

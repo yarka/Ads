@@ -9,6 +9,10 @@
   <%= @ad.description %>
 </p>
 <p>
+  <strong>Ad Type:</strong>
+  <%= Adtype.find(@ad.adtype_id).name unless @ad.adtype_id == nil %>
+</p>
+<p>
   <strong>Image Url:</strong>
   <% @ad.images.each do |image| %>
     <%= image_tag(image.file.url) %>

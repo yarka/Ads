@@ -2,10 +2,9 @@
   <%= f.inputs do %>
     <%= f.input :title, :hint => "Title should be at least 10 characters long" %>
     <%= f.input :description %>
+    <%= f.input :adtype_id, :as => :select, :collection => Adtype.find(:all) %>
     <%= f.fields_for :images %>
-    <p>
-      <%= f.link_to_add "Add image", :images %>
-    </p>
+    <%= f.link_to_add "Add image", :images %>
     <%= f.input :price %>
   <% end %>
   <%= f.buttons do %>

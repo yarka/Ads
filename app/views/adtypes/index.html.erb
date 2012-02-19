@@ -1,0 +1,17 @@
+<% title "Adtypes" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for adtype in @adtypes %>
+    <tr>
+      <td><%= adtype.name %></td>
+      <td><%= link_to "Show", adtype %></td>
+      <td><%= link_to "Edit", edit_adtype_path(adtype) %></td>
+      <td><%= link_to "Destroy", adtype, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Adtype", new_adtype_path %></p>

@@ -1,0 +1,12 @@
+<% title "Adtype" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @adtype.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_adtype_path(@adtype) %> |
+  <%= link_to "Destroy", @adtype, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", adtypes_path %>
+</p>

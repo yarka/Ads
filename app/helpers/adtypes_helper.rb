@@ -1,0 +1,2 @@
+module AdtypesHelper
+end

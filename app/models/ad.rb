@@ -1,7 +1,8 @@
 class Ad < ActiveRecord::Base
 
-  has_many :images
-
+  has_many :images, :dependent => :destroy
+  belongs_to :ad_type
+  
   accepts_nested_attributes_for :images, :allow_destroy => true
   
   validates :title, :description, :presence => true

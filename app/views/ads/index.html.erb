@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Description</th>
     <th>Image Url</th>
+    <th>Ad type</th>
     <th>Price</th>
   </tr>
   <% for ad in @ads %>
@@ -15,7 +16,10 @@
         <% ad.images.each do |image| %>
           <%= image_tag(image.file.url) %>
         <% end %>
-       </td>
+      </td>
+      <td>
+        <%= Adtype.find(ad.adtype_id).name unless ad.adtype_id == nil %>
+      </td>
       <td><%= ad.price %></td>
       <td><%= link_to "Show", ad %></td>
       <td><%= link_to "Edit", edit_ad_path(ad) %></td>
@@ -25,3 +29,4 @@
 </table>
 <p> <%= will_paginate @ads %></p>
 <p><%= link_to "New Ad", new_ad_path %></p>
+<p><%= link_to "New Ad Type", new_adtype_path %></p>

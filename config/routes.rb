@@ -1,4 +1,6 @@
 Ads::Application.routes.draw do
+  resources :adtypes
+
   resources :ads
 
   # The priority is based upon order of creation:
