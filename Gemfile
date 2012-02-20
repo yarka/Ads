@@ -46,4 +46,16 @@ gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem "mocha", :group => :test
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+end
+
+group :test do
+  gem 'webrat'
+  gem 'shoulda'
+  gem 'factory_girl_rails', '~>1.2'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem "mocha"
+end
