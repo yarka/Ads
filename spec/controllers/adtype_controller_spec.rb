@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe AdtypesController do
+  include Devise::TestHelpers
 
   def valid_attributes(options={})
-    { :name => "Test type" }
+    { :name => "Test type" }.merge(options)
   end
 
+  before(:each) { sign_in(Factory(:admin)) }
+  
   describe "GET index" do
     it "assigns all adtypes as @adtypes" do
       adtype = Adtype.create! valid_attributes
@@ -30,7 +33,7 @@ describe AdtypesController do
   end
 
   describe "GET edit" do
-    it "assigns the requested adtype as @as" do
+    it "assigns the requested adtype as @ad" do
       adtype = Adtype.create! valid_attributes
       get :edit, :id => adtype.id.to_s
       assigns(:adtype).should eq(adtype)

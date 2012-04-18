@@ -1,12 +1,16 @@
 require 'spec_helper'
 
 describe AdsController do
+  include Devise::TestHelpers
 
   def valid_attributes(options={})
     { :title => 'SuperTestText',
       :description => 'Test description',
-      :price => 10.96 }.merge(options)
+      :price => 10.96,
+      :adtype_id => 1}.merge(options)
   end
+  
+  before(:each) { sign_in(Factory(:admin)) }
 
   describe "GET index" do
     it "assigns all ads as @ads" do
@@ -121,5 +125,4 @@ describe AdsController do
       response.should redirect_to(ads_url)
     end
   end
-
 end

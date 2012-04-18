@@ -1,4 +1,4 @@
-<%= semantic_nested_form_for @ad, :html => {:multipart => true} do |f| %>
+<%= semantic_nested_form_for @ad, :validate => true, :html => {:multipart => true} do |f| %>
   <%= f.inputs do %>
     <%= f.input :title, :hint => "Title should be at least 10 characters long" %>
     <%= f.input :description %>

@@ -1,10 +1,12 @@
 class AdsController < ApplicationController
+
+  load_and_authorize_resource
+
   def index
-    @ads = Ad.paginate(:page => params[:page], :per_page => 5)
+    @ads = @ads.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
-    @ad = Ad.find(params[:id])
   end
 
   def new
@@ -12,7 +14,6 @@ class AdsController < ApplicationController
   end
 
   def create
-    @ad = Ad.new(params[:ad])
     if @ad.save
       redirect_to @ad, :notice => "Successfully created ad."
     else
@@ -21,11 +22,9 @@ class AdsController < ApplicationController
   end
 
   def edit
-    @ad = Ad.find(params[:id])
   end
 
   def update
-    @ad = Ad.find(params[:id])
     if @ad.update_attributes(params[:ad])
       redirect_to @ad, :notice  => "Successfully updated ad."
     else
@@ -34,7 +33,6 @@ class AdsController < ApplicationController
   end
 
   def destroy
-    @ad = Ad.find(params[:id])
     @ad.destroy
     redirect_to ads_url, :notice => "Successfully destroyed ad."
   end

@@ -1,5 +1,4 @@
 <% title "Ads" %>
-
 <table>
   <tr>
     <th>Title</th>
@@ -18,15 +17,15 @@
         <% end %>
       </td>
       <td>
-        <%= Adtype.find(ad.adtype_id).name unless ad.adtype_id == nil %>
+        <%= ad.adtype.name %>
       </td>
       <td><%= ad.price %></td>
       <td><%= link_to "Show", ad %></td>
-      <td><%= link_to "Edit", edit_ad_path(ad) %></td>
-      <td><%= link_to "Destroy", ad, :confirm => 'Are you sure?', :method => :delete %></td>
+      <%= render :partial => 'edit_and_destroy_links', :locals => {:subject => ad}  %>
     </tr>
   <% end %>
 </table>
 <p> <%= will_paginate @ads %></p>
-<p><%= link_to "New Ad", new_ad_path %></p>
-<p><%= link_to "New Ad Type", new_adtype_path %></p>
+<% if can? :create, ad %>
+  <p><%= link_to "New Ad", new_ad_path %></p>
+<% end %>

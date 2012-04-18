@@ -1,0 +1,6 @@
+<% if can? :update, subject %>
+  <td><%= link_to "Edit", edit_ad_path(subject) %></td>
+<% end %>
+<% if can? :destroy, subject %>
+  <td><%= link_to "Destroy", subject, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>

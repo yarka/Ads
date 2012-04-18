@@ -1,0 +1,11 @@
+<%= semantic_form_for @user do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :email %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+  <% end %>
+  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end  %>
+<% end %>

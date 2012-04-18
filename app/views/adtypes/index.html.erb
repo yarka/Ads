@@ -8,10 +8,11 @@
     <tr>
       <td><%= adtype.name %></td>
       <td><%= link_to "Show", adtype %></td>
-      <td><%= link_to "Edit", edit_adtype_path(adtype) %></td>
-      <td><%= link_to "Destroy", adtype, :confirm => 'Are you sure?', :method => :delete %></td>
+      <%= render :partial => 'edit_and_destroy_links', :locals => {:subject => adtype}  %>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Adtype", new_adtype_path %></p>
+<% if can? :create, Adtype %>
+  <p><%= link_to "New Adtype", new_adtype_path %></p>
+<% end %>

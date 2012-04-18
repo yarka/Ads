@@ -5,8 +5,16 @@
   <%= @adtype.name %>
 </p>
 
+<% unless @adtype.ads.blank? %>
 <p>
-  <%= link_to "Edit", edit_adtype_path(@adtype) %> |
-  <%= link_to "Destroy", @adtype, :confirm => 'Are you sure?', :method => :delete %> |
+  <strong>Ads:</strong>
+  <% @adtype.ads.each do |ad| %>
+    <%= link_to ad.title, ad_path(ad) %>
+  <% end %>
+</p>
+<% end %>
+
+<p>
+  <%= render :partial => 'edit_and_destroy_links', :locals => {:subject => @adtype}  %>
   <%= link_to "View All", adtypes_path %>
 </p>

@@ -1,8 +1,8 @@
-<%= form_for @adtype do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit %></p>
+<%= semantic_form_for @adtype do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end  %>
 <% end %>

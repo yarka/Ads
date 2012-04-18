@@ -10,7 +10,8 @@
 </p>
 <p>
   <strong>Ad Type:</strong>
-  <%= Adtype.find(@ad.adtype_id).name unless @ad.adtype_id == nil %>
+  <%#= Adtype.find(@ad.adtype_id).name unless @ad.adtype_id == nil %>
+  <%= link_to @ad.adtype.name, adtype_path(@ad.adtype) %>
 </p>
 <p>
   <strong>Image Url:</strong>
@@ -25,7 +26,6 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_ad_path(@ad) %> |
-  <%= link_to "Destroy", @ad, :confirm => 'Are you sure?', :method => :delete %> |
+<%= render :partial => 'edit_and_destroy_links', :locals => {:subject => @ad}  %>
   <%= link_to "View All", ads_path %>
 </p>
