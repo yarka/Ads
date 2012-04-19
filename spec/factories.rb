@@ -3,7 +3,7 @@ FactoryGirl.define do
     title 'SuperTestText'
     description 'Test description'
     price 10.15
-    adtype_id 1
+    association :adtype, factory: :adtype_example
   end
 
   factory :adtype_example, :class => Adtype do

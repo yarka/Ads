@@ -14,6 +14,7 @@ class AdsController < ApplicationController
   end
 
   def create
+    @ad.user = current_user
     if @ad.save
       redirect_to @ad, :notice => "Successfully created ad."
     else

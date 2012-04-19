@@ -28,7 +28,7 @@ gem 'bootstrap-sass', '~> 2.0.2'
 gem 'bootstrap-will_paginate', '0.0.5' 
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+ gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"

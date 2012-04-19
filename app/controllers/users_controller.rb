@@ -12,7 +12,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    @user.role = params[:user][:role]
+    @user.email = params[:user][:email]
+    @user.first_name = params[:user][:first_name]
+    @user.last_name = params[:user][:last_name]
+    if @user.save
       redirect_to @user, :notice  => "Successfully updated user."
     else
       render :action => 'edit'
