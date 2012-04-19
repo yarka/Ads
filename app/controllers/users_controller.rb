@@ -12,11 +12,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.role = params[:user][:role]
-    @user.email = params[:user][:email]
-    @user.first_name = params[:user][:first_name]
-    @user.last_name = params[:user][:last_name]
-    if @user.save
+    @user.role = params[:user][:role] if can? :assign_role, current_user
+    if @user.update_attributes(params[:user])
       redirect_to @user, :notice  => "Successfully updated user."
     else
       render :action => 'edit'

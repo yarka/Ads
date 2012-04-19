@@ -7,6 +7,7 @@ class Ability
     if user.role == "admin"
       can :manage, [Ad, Adtype]
       can :manage, User
+      can :assign_role, User
       cannot [:update, :destroy], User, :id => user.id
     else
       can :read, [Ad, Adtype]

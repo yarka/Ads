@@ -31,7 +31,6 @@ User.create!(
   :last_name => "last_user",
   :password => "password",
   :role => "signed_user"
-
 )
 
 

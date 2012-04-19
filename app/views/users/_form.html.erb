@@ -4,7 +4,9 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
   <% end %>
-  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  <% if can? :assign_role, current_user %>
+    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  <% end %>
   <%= f.buttons do %>
     <%= f.commit_button %>
   <% end  %>
