@@ -18,20 +18,23 @@ Ad.all.each do |ad|
 end
 
 ### USERS ###
-User.create!(
+admin = User.new(
   :email => "admin@admin.com",
   :first_name => "first_admin",
   :last_name => "last_admin",
-  :password => "password",
-  :role => "admin"
+  :password => "password"
 )
-User.create!(
+admin.role = "admin"
+admin.save!
+
+user = User.new(
   :email => "user@user.com",
   :first_name => "first_user",
   :last_name => "last_user",
-  :password => "password",
-  :role => "signed_user"
+  :password => "password"
 )
+user.role = "signed_user"
+user.save!
 
 
 

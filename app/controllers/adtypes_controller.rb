@@ -1,38 +1,40 @@
 class AdtypesController < ApplicationController
-
   load_and_authorize_resource
+
+  respond_to :html
   
   def index
+    respond_with(@adtypes = @adtypes.order("created_at DESC").page(params[:page]).per_page(10))
   end
 
   def show
+    respond_with(@adtype)
   end
 
   def new
-    @adtype = Adtype.new
+    respond_with(@adtype = Adtype.new)
   end
 
   def create
     if @adtype.save
-      redirect_to @adtype, :notice => "Successfully created adtype."
-    else
-      render :action => 'new'
+      flash[:notice] = "Successfully created adtype."
     end
+    respond_with(@adtype)
   end
 
   def edit
+    respond_with(@adtype)
   end
 
   def update
     if @adtype.update_attributes(params[:adtype])
-      redirect_to @adtype, :notice  => "Successfully updated adtype."
-    else
-      render :action => 'edit'
+      flash[:notice]  = "Successfully updated adtype."
     end
+    respond_with(@adtype)
   end
 
   def destroy
-    @adtype.destroy
-    redirect_to adtypes_url, :notice => "Successfully destroyed adtype."
+    flash[:notice] = "Successfully destroyed adtype."
+    respond_with(@adtype.destroy)
   end
 end

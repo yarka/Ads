@@ -1,40 +1,41 @@
 class AdsController < ApplicationController
-
   load_and_authorize_resource
 
+  respond_to :html
+
   def index
-    @ads = @ads.paginate(:page => params[:page], :per_page => 5)
+    respond_with(@ads = @ads.order("created_at DESC").page(params[:page]).per_page(5))
   end
 
   def show
+    respond_with(@ad)
   end
 
   def new
-    @ad = Ad.new
+    respond_with(@ad = Ad.new)
   end
 
   def create
     @ad.user = current_user
-    if @ad.save
-      redirect_to @ad, :notice => "Successfully created ad."
-    else
-      render :action => 'new'
+    if @ad.save 
+      flash[:notice] = "Successfully created ad." 
     end
+    respond_with(@ad)
   end
 
   def edit
+    respond_with(@ad)
   end
 
   def update
     if @ad.update_attributes(params[:ad])
-      redirect_to @ad, :notice  => "Successfully updated ad."
-    else
-      render :action => 'edit'
+      flash[:notice] = "Successfully updated ad." 
     end
+    respond_with(@ad)
   end
 
   def destroy
-    @ad.destroy
-    redirect_to ads_url, :notice => "Successfully destroyed ad."
+    flash[:notice] = "Successfully destroyed ad."
+    respond_with(@ad.destroy)
   end
 end
